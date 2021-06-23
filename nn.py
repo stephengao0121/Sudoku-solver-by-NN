@@ -1,3 +1,7 @@
+"""
+nn.py: The neural network model settings for sudoku solving.
+"""
+
 import numpy as np
 import tensorflow.keras as kr
 
@@ -8,8 +12,9 @@ class SudokuNN(object):
         self._input = kr.Input(shape=input_shape)
         self._layers = [self._input]
         for i in range(1, layer_num):
-            layer = kr.layers.Dense(mid_num, activation='relu')(self._layers[i - 1])
+            layer = kr.layers.Dense(mid_num, activation='relu')(self._layers[-1])
             self._layers.append(layer)
+            self._layers.append(kr.layers.Dropout(0.4)(layer))
         self._layers.append(kr.layers.Flatten()(self._layers[-1]))
         self._output = [
             kr.layers.Dense(input_shape[0], activation='softmax')(self._layers[-1])
