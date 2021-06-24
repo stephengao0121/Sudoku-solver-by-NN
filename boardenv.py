@@ -144,20 +144,19 @@ class Board(object):
         Let the trained model to solve the puzzle.
         :return: None
         """
-        test = np.array([self._board])
-        for _ in range((test == 0).sum((1, 2)).max()):
+        test = np.array(self._board)
+        for _ in range((test == 0).sum((0, 1)).max()):
             # make predictions, then take the value with the maximum likelihood.
-            prediction = np.array(self._model.predict(kr.utils.to_categorical(test)))
+            prediction = np.array(self._model.predict(kr.utils.to_categorical([test])))
             probabilities = prediction.max(2).T
             values = prediction.argmax(2).T + 1
             zeros = (test == 0).reshape(-1, 16)
 
             # replace one 0 with the most confident value in this prediction.
-            for grid, prob, value, zero in zip(test, probabilities, values, zeros):
-                if np.any(zero):
-                    where = np.where(zero)[0]
-                    confidence_position = where[prob[zero].argmax()]  # pos with highest prob.
-                    confidence_value = value[confidence_position]
-                    grid.flat[confidence_position] = confidence_value
+            if np.any(zeros[0]):
+                where = np.where(zeros[0])[0]
+                confidence_position = where[probabilities[0][zeros[0]].argmax()]  # pos with highest prob.
+                confidence_value = values[0][confidence_position]
+                test.flat[confidence_position] = confidence_value
 
-        self._board = test[0].reshape(4, 4).tolist()
+        self._board = test.reshape(4, 4).tolist()
