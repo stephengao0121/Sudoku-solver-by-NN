@@ -15,3 +15,11 @@ boardenv.py: board setting, including visualization and useful functions.
 ## 06.21.2021 update
 
 Initial commit. Integrating nn and board undone.
+
+## 06.23.2021 update
+
+Add visualization.
+
+## 06.24.2021 update
+
+Change the decision policy. A high accuracy and stable version.
