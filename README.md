@@ -23,3 +23,7 @@ Add visualization.
 ## 06.24.2021 update
 
 Change the decision policy. A high accuracy and stable version.
+
+## 06.27.2021 update
+
+Add pygame visualization.
