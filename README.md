@@ -1,4 +1,4 @@
-# Sudoku-solver-by-NN
+# Sudoku-Solver-by-NN
 
 A 4\*4 sudoku solver implemented by neural network.
 
