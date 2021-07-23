@@ -1,20 +1,21 @@
 import boardenv as bd
 import pygame
 
+
 def main():
     inp = [[2, 0, 4, 0], [3, 4, 1, 0], [0, 0, 0, 4], [4, 3, 0, 0]]
     board = bd.Board(case=inp)
     board.train()
     board.solve()
     board.display()
-    Sudoku = board.outcome()
+    Sudoku = board.get_board()
 
     # Use pygame to visualize the Sudoku board
 
     # init pygame
     pygame.init()
 
-    # contant
+    # content
     SIZE = [400, 450]
     font40 = pygame.font.SysFont('Times', 40)
     font15 = pygame.font.SysFont('Times', 15)
@@ -33,8 +34,8 @@ def main():
 
         # draw background
         # white background
-        backgroud = (255, 255, 255)
-        screen.fill(backgroud)
+        background = (255, 255, 255)
+        screen.fill(background)
 
         # draw game board
         pygame.draw.rect(screen, (0, 0, 0), (0, 0, 200, 400), 3)
@@ -55,9 +56,9 @@ def main():
                 x, y = j * 100 + 40, i * 100 + 35
                 screen.blit(txt, (x, y))
 
-        #give context
-        txt1 = font15.render(('Group 3 Project: Sudoku '), True, (0, 0, 0))
-        txt2 = font15.render(('Members: Steph, Henry, Rebecca, Monica'), True, (0, 0, 0))
+        # give context
+        txt1 = font15.render("Group 3 Project: Sudoku ", True, (0, 0, 0))
+        txt2 = font15.render("Members: Steph, Henry, Rebecca, Monica", True, (0, 0, 0))
         x, y = 10, 408
         x1, y1 = 10, 430
         screen.blit(txt1, (x, y))

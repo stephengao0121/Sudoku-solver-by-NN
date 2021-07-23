@@ -81,13 +81,6 @@ class Board(object):
             for j in range(len(self._board)):
                 print(" {} |".format(self._board[i][j]), end="")
             print("\n"+"-"*(len(self._board) * 4 + 1))
-    
-    def outcome(self):
-        """
-        return the self._board, and can use display
-        :return: self._board
-        """
-        return self._board
 
     def train(self):
         """
