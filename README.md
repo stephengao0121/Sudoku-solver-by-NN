@@ -27,3 +27,7 @@ Change the decision policy. A high accuracy and stable version.
 ## 06.27.2021 update
 
 Add pygame visualization.
+
+## 07.23.2021 update
+
+Remove a redundant function in class Board, and fix some spelling mistakes.
