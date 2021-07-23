@@ -4,7 +4,7 @@ A 4\*4 sudoku solver implemented by neural network.
 
 ## Structure
 
-main.py: training and testing.
+main.py: training, testing and visualizing the results.
 
 nn.py: neural network setting.
 
